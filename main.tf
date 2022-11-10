@@ -7,10 +7,9 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "azure-terraform-ocr-tfstate"
-    storage_account_name = "tfstatetsnord"
-    container_name       = "tfstatestorcon"
-    key                  = "terraform.tfstate"
+    resource_group_name = "azure-terraform-ocr-tfstate"
+    container_name      = "tfstatestorcon"
+    key                 = "terraform.tfstate"
   }
 }
 

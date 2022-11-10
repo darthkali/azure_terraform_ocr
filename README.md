@@ -56,7 +56,6 @@ ARM_SUBSCRIPTION_ID="..."
 ARM_TENANT_ID="..."
 ```
 
-
 ## manual setup
 * you need `terraform` installed
 * follow [setup terraform tfstate in azure](##setup terraform tfstate in azure)
@@ -83,10 +82,15 @@ terraform apply -input=false "planfile"
 ## setup terraform tfstate in azure
 * generate resource group `azure-terraform-ocr-tfstate` in azure console
 * generate storage account `tfstatetsnord` in azure console, remember the `key` under menu `Access keys`, deactivate `Enable blob public access`, chose `LRS`
+
+[//]: # (* generate storage account `tfstatestoraccXYZ` in azure console, this is a custom value and need to be globaly unique in azure, remember the `key` under menu `Access keys`, deactivate `Enable blob public access`, chose `LRS`)
 * generate storage container `tfstatestorcon` in azure console
-* set values in `github`>>`settings`>>`secrets`
-  AZDO_PERSONAL_ACCESS_TOKEN="..."
-  
+* set values in `github`>>`settings`>>`secrets>>actions`
+```
+AZDO_PERSONAL_ACCESS_TOKEN=...key...
+TFSTATE_STORAGE_ACCOUNT_NAME=tfstatestoraccXYZ
+TF_VAR_CUSTOMIZERE=...<custom and unique code for url's, e.g. '0815'>...
+```
 
 ## set up azure function
 * select function folder
